@@ -59,5 +59,78 @@ namespace Microservices.Services.CouponAPI.Controllers
             }
             return _response;
         }
+
+        [HttpGet]
+        [Route("GetByCode/{code}")]
+        public ResponseDTO GetByCode(string code)
+        {
+            try
+            {
+                Coupon c = _db.Coupons.First(u => u.CouponCode.ToLower() == code.ToLower());
+                _response.Result = _mapper.Map<CouponDTO>(c);
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.Message = e.Message;
+            }
+            return _response;
+        }
+
+        [HttpPost]
+        public ResponseDTO Post([FromBody] CouponDTO couponDTO)
+        {
+            try
+            {
+                Coupon c = _mapper.Map<Coupon>(couponDTO);
+                _db.Coupons.Add(c);
+                _db.SaveChanges();
+
+                _response.Result = _mapper.Map<CouponDTO>(c);
+                ;
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.Message = e.Message;
+            }
+            return _response;
+        }
+
+        [HttpPut]
+        public ResponseDTO Put([FromBody] CouponDTO couponDTO)
+        {
+            try
+            {
+                Coupon c = _mapper.Map<Coupon>(couponDTO);
+                _db.Coupons.Update(c);
+                _db.SaveChanges();
+
+                _response.Result = _mapper.Map<CouponDTO>(c);
+
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.Message = e.Message;
+            }
+            return _response;
+        }
+
+        [HttpDelete]
+        public ResponseDTO Delete(int id)
+        {
+            try
+            {
+                Coupon c = _db.Coupons.First(u => u.CouponId == id);
+                _db.Coupons.Remove(c);
+                _db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                _response.IsSuccess = false;
+                _response.Message = e.Message;
+            }
+            return _response;
+        }
     }
-}
