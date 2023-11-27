@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Name": "Microservices.Services.CouponAPI\\Microservices.Services.CouponAPI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Name": "WebApp\\WebApp.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
