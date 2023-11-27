@@ -4,6 +4,8 @@ using WebApp.Models;
 using WebApp.Service.IService;
 using static WebApp.Utility.StaticDetails;
 namespace WebApp.Service
+//BaseService - Sends Async HTTP Requests. Takes RequestDTO object containing data, request type, etc. and returns API's response
+//from async call.
 {
     public class BaseService : IBaseService
     {
@@ -68,3 +70,4 @@ namespace WebApp.Service
             }
         }
     }
+}
