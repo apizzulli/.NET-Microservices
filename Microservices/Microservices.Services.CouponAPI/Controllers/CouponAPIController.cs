@@ -87,7 +87,6 @@ namespace Microservices.Services.CouponAPI.Controllers
                 _db.SaveChanges();
 
                 _response.Result = _mapper.Map<CouponDTO>(c);
-                ;
             }
             catch (Exception e)
             {

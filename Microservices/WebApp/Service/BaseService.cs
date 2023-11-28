@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Net;
+using System.Text;
 using WebApp.Models;
 using WebApp.Service.IService;
 using static WebApp.Utility.StaticDetails;
@@ -25,7 +26,7 @@ namespace WebApp.Service
                 message.RequestUri = new Uri(req.URL);
                 if (req.Data != null)
                 {
-                    message.Content = new StringContent(JsonConvert.SerializeObject(req.Data));
+                    message.Content = new StringContent(JsonConvert.SerializeObject(req.Data), Encoding.UTF8, "application/JSON");
                 }
                 HttpResponseMessage response = null;
                 switch (req.APIType)
