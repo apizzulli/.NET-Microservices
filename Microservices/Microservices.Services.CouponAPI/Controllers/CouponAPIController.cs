@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Microservices.Services.CouponAPI.Controllers
 {
-    [Route("api/coupon")]
+    [Route("api/coupo2n")]
     [ApiController]
     public class CouponAPIController : ControllerBase
     {
@@ -117,11 +117,12 @@ namespace Microservices.Services.CouponAPI.Controllers
         }
 
         [HttpDelete]
+        [Route("{id:int}")]
         public ResponseDTO Delete(int id)
         {
             try
             {
-                Coupon c = _db.Coupons.First(u => u.CouponId == id);
+                Coupon c = _db.Coupons.First(u => u.CouponID == id);
                 _db.Coupons.Remove(c);
                 _db.SaveChanges();
             }

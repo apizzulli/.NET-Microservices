@@ -14,7 +14,7 @@ namespace Microservices.Services.CouponAPI.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Coupon>().HasData(new Coupon
             {
-                CouponId = 1,
+                CouponID = 1,
                 CouponCode = "1G0FF",
                 DiscountAmount = 10,
                 MinAmount = 10
@@ -22,7 +22,7 @@ namespace Microservices.Services.CouponAPI.Data
             });
             modelBuilder.Entity<Coupon>().HasData(new Coupon
             {
-                CouponId = 2,
+                CouponID = 2,
                 CouponCode = "2CB45",
                 DiscountAmount = 20,
                 MinAmount = 50

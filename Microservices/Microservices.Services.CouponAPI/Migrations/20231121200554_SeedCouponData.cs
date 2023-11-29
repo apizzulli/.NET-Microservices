@@ -15,7 +15,7 @@ namespace Microservices.Services.CouponAPI.Migrations
         {
             migrationBuilder.InsertData(
                 table: "Coupons",
-                columns: new[] { "CouponId", "CouponCode", "DiscountAmount", "LastUpdated", "MinAmount" },
+                columns: new[] { "CouponID", "CouponCode", "DiscountAmount", "LastUpdated", "MinAmount" },
                 values: new object[,]
                 {
                     { 1, "1G0FF", 10.0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 10 },
@@ -28,12 +28,12 @@ namespace Microservices.Services.CouponAPI.Migrations
         {
             migrationBuilder.DeleteData(
                 table: "Coupons",
-                keyColumn: "CouponId",
+                keyColumn: "CouponID",
                 keyValue: 1);
 
             migrationBuilder.DeleteData(
                 table: "Coupons",
-                keyColumn: "CouponId",
+                keyColumn: "CouponID",
                 keyValue: 2);
         }
     }

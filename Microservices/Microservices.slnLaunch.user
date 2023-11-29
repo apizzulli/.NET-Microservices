@@ -4,12 +4,18 @@
     "Projects": [
       {
         "Name": "Microservices.Services.CouponAPI\\Microservices.Services.CouponAPI.csproj",
-        "Action": "Start"
+        "Action": "Start",
+        "DebugTarget": ""
       },
       {
         "Name": "WebApp\\WebApp.csproj",
-        "Action": "Start"
+        "Action": "Start",
+        "DebugTarget": ""
       }
     ]
+  },
+  {
+    "Name": "New Profile",
+    "Projects": []
   }
 ]

@@ -5,7 +5,7 @@ namespace Microservices.Services.CouponAPI.Models
     public class Coupon
     {
         [Key]
-        public int CouponId { get; set; }
+        public int CouponID { get; set; }
         [Required]
         public string CouponCode { get; set; }
         [Required]

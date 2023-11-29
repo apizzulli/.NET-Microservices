@@ -15,7 +15,7 @@ namespace Microservices.Services.CouponAPI.Migrations
                 name: "Coupons",
                 columns: table => new
                 {
-                    CouponId = table.Column<int>(type: "int", nullable: false)
+                    CouponID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CouponCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DiscountAmount = table.Column<double>(type: "float", nullable: false),
@@ -24,7 +24,7 @@ namespace Microservices.Services.CouponAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Coupons", x => x.CouponId);
+                    table.PrimaryKey("PK_Coupons", x => x.CouponID);
                 });
         }
 

@@ -27,11 +27,11 @@ namespace Microservices.Services.CouponAPI.Migrations
 
             modelBuilder.Entity("Microservices.Services.CouponAPI.Models.Coupon", b =>
                 {
-                    b.Property<int>("CouponId")
+                    b.Property<int>("CouponID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CouponId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CouponID"));
 
                     b.Property<string>("CouponCode")
                         .IsRequired()
@@ -46,7 +46,7 @@ namespace Microservices.Services.CouponAPI.Migrations
                     b.Property<int>("MinAmount")
                         .HasColumnType("int");
 
-                    b.HasKey("CouponId");
+                    b.HasKey("CouponID");
 
                     b.ToTable("Coupons");
                 });

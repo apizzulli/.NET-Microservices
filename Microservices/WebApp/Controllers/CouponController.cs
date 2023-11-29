@@ -22,6 +22,10 @@ namespace WebApp.Controllers
             {
                 list = JsonConvert.DeserializeObject<List<CouponDTO>>(Convert.ToString(response.Result));
             }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
             return View(list);
         }
 
@@ -40,8 +44,43 @@ namespace WebApp.Controllers
                 {
                     return RedirectToAction(nameof(CouponIndex));
                 }
+                else
+                {
+                    TempData["error"] = response?.Message;
+                }
             }
             return View(coupon);
+        }
+
+        public async Task<IActionResult> CouponDelete(int couponID)
+        {
+            ResponseDTO? response = await _couponService.GetCouponByIDAsync(couponID);
+
+            if (response != null && response.IsSuccess)
+            {
+                CouponDTO? model = JsonConvert.DeserializeObject<CouponDTO>(Convert.ToString(response.Result));
+                return View(model);
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CouponDelete(CouponDTO couponDTO)
+        {
+            ResponseDTO? response = await _couponService.DeleteCouponsAsync(couponDTO.CouponID);
+
+            if (response != null && response.IsSuccess)
+            {
+                return RedirectToAction(nameof(CouponIndex));
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return View(couponDTO);
         }
     }
 }
