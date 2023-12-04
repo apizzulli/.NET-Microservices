@@ -11,6 +11,11 @@
         "Name": "WebApp\\WebApp.csproj",
         "Action": "Start",
         "DebugTarget": ""
+      },
+      {
+        "Name": "Microservices.Services.AuthAPI\\Microservices.Services.AuthAPI.csproj",
+        "Action": "Start",
+        "DebugTarget": ""
       }
     ]
   },
