@@ -2,7 +2,7 @@
 
 namespace Microservices.Services.AuthAPI.Service.IService
 {
-    public interface IJWTTokenGenerator
+    public interface IJwtTokenGenerator
     {
         string GenerateToken(ApplicationUser appUser);
     }

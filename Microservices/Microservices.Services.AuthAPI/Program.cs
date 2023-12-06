@@ -20,9 +20,9 @@ builder.Services.AddDbContext<AppDBContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
 });
-builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("APISettings: JwtOptions"));
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("APISettings:JwtOptions"));
 builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<IJWTTokenGenerator, JWTTokenGenerator>();
+builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

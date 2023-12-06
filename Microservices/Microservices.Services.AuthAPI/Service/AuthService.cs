@@ -11,8 +11,8 @@ namespace Microservices.Services.AuthAPI.Service
         private readonly AppDBContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly IJWTTokenGenerator _jwtTokenGenerator;
-        public AuthService(AppDBContext db, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IJWTTokenGenerator jwtTokenGenerator)
+        private readonly IJwtTokenGenerator _jwtTokenGenerator;
+        public AuthService(AppDBContext db, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IJwtTokenGenerator jwtTokenGenerator)
         {
             _db = db;
             _userManager = userManager;
@@ -72,7 +72,7 @@ namespace Microservices.Services.AuthAPI.Service
             LoginResponseDTO loginResponseDTO = new LoginResponseDTO()
             {
                 User = userDTO,
-                Token = ""
+                Token = token
             };
             return loginResponseDTO;
         }

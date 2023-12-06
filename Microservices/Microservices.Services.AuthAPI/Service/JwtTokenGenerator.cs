@@ -1,4 +1,10 @@
-﻿using System.Text;
+﻿using Microservices.Services.AuthAPI.Models;
+using Microservices.Services.AuthAPI.Service.IService;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace Microservices.Services.AuthAPI.Service
 {
@@ -7,7 +13,7 @@ namespace Microservices.Services.AuthAPI.Service
         private readonly JwtOptions _jwtOptions;
         public JwtTokenGenerator(IOptions<JwtOptions> jwtOptions)
         {
-            _jwtOptions = jwtOptions;
+            _jwtOptions = jwtOptions.Value;
         }
 
         public string GenerateToken(ApplicationUser appUser)
@@ -18,8 +24,8 @@ namespace Microservices.Services.AuthAPI.Service
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Email,appUser.Email),
-                new Claim(JwtRegisteredClaimNames.Sub.appUser.Id),
-                new Claim(JwtRegisteredClaimNames.Name,appUser.UserName.ToString())
+                new Claim(JwtRegisteredClaimNames.Sub,appUser.Id),
+                new Claim(JwtRegisteredClaimNames.Name,appUser.UserName)
             };
 
             var tokenDesc = new SecurityTokenDescriptor
