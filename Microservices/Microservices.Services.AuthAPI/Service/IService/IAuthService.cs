@@ -6,5 +6,7 @@ namespace Microservices.Services.AuthAPI.Service.IService
     {
         Task<string> Register(RegistrationRequestDTO regRequest);
         Task<LoginResponseDTO> Login(LoginRequestDTO loginRequest);
+
+        Task<bool> AssignRole(string email, string roleName);
     }
 }
