@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Microservices.Services.CouponAPI.Controllers
 {
-    [Route("api/coupo2n")]
+    [Route("api/coupon")]
     [ApiController]
     public class CouponAPIController : ControllerBase
     {

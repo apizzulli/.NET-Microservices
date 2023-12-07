@@ -14,7 +14,6 @@ namespace WebApp.Service
 
         public async Task<ResponseDTO?> CreateCouponsAsync(CouponDTO couponDTO)
         {
-            Console.WriteLine("hey");
             return await _baseService.SendAsync(new RequestDTO()
             {
                 APIType = APIType.POST,
