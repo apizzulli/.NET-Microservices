@@ -18,7 +18,7 @@ namespace WebApp.Service
             {
                 APIType = APIType.POST,
                 Data = loginRequestDTO,
-                URL = CouponAPIBase + "/api/auth/login"
+                URL = AuthAPIBase + "/api/auth/login"
             });
         }
 
@@ -28,7 +28,7 @@ namespace WebApp.Service
             {
                 APIType = APIType.POST,
                 Data = regRequest,
-                URL = CouponAPIBase + "/api/auth/register"
+                URL = AuthAPIBase + "/api/auth/register"
             });
         }
 
@@ -38,7 +38,7 @@ namespace WebApp.Service
             {
                 APIType = APIType.POST,
                 Data = regRequest,
-                URL = CouponAPIBase + "/api/auth/AssignRole"
+                URL = AuthAPIBase + "/api/auth/AssignRole"
             });
         }
 
