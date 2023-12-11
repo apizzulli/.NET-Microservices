@@ -10,10 +10,11 @@ namespace WebApp.Controllers
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;
-
-        public AuthController(IAuthService authService)
+        private readonly ITokenProvider _tokenProvider;
+        public AuthController(IAuthService authService, ITokenProvider tokenProvider)
         {
             _authService = authService;
+            _tokenProvider = tokenProvider;
         }
 
         [HttpGet]
@@ -29,6 +30,7 @@ namespace WebApp.Controllers
             if (response != null && response.IsSuccess)
             {
                 LoginResponseDTO loginResponseDTO = JsonConvert.DeserializeObject<LoginResponseDTO>(Convert.ToString(response.Result));
+                _tokenProvider.SetToken(loginResponseDTO.Token);
                 return RedirectToAction("Index", "Home");
             }
             else
